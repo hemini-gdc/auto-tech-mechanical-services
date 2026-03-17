@@ -498,6 +498,10 @@ footer {
     color: #555;
 }
 
+.contact-info p i {
+    margin-top: 2px;
+}
+
 .contact-info p a {
     word-break: break-all;
 }
