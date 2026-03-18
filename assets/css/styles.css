@@ -418,6 +418,7 @@ nav ul li a:hover {
     text-transform: uppercase;
     border-bottom: 3px solid rgba(243, 156, 18, 0.35);
     padding-bottom: 15px;
+    white-space: nowrap;
 }
 
 .premium-services-list {
@@ -425,6 +426,35 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px 15px;
+}
+
+.services-header-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.services-link-btn {
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(243, 156, 18, 0.6);
+    background: rgba(243, 156, 18, 0.06);
+    color: var(--secondary-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    transition: var(--transition);
+}
+
+.services-link-btn:hover {
+    background: var(--primary-color);
+    color: #1a1a1a;
+    box-shadow: 0 8px 18px rgba(243, 156, 18, 0.35);
+    transform: translateY(-1px);
 }
 
 .premium-services-list li {
