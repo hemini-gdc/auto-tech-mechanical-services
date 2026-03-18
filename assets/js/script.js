@@ -59,6 +59,44 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// Count-up animation for stats when they come into view
+const statObserver = new IntersectionObserver((entries, statObs) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const el = entry.target;
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        if (isNaN(target)) {
+            statObs.unobserve(el);
+            return;
+        }
+
+        const suffix = el.getAttribute('data-suffix') || '';
+        const duration = 1500; // ms
+        const startTime = performance.now();
+
+        const startValue = 0;
+
+        const tick = (now) => {
+            const progress = Math.min((now - startTime) / duration, 1);
+            const current = Math.floor(startValue + (target - startValue) * progress);
+            el.textContent = `${current}${suffix}`;
+
+            if (progress < 1) {
+                requestAnimationFrame(tick);
+            }
+        };
+
+        requestAnimationFrame(tick);
+        statObs.unobserve(el);
+    });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('.stat-number').forEach(el => {
+    statObserver.observe(el);
+});
+
 // Mobile Menu Toggle
 const mobileMenu = document.getElementById('mobile-menu');
 const nav = document.querySelector('nav');
