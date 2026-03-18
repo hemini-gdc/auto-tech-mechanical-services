@@ -51,27 +51,33 @@
       </ul>
     </div>
     <div class="contact-form-block">
-      <form id="contactForm"
-        onsubmit="event.preventDefault(); alert('Message sent successfully! We will get back to you shortly.');">
+      <form id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact">
+        <div class="contact-form-field hidden">
+          <label>Don’t fill this out if you’re human:</label>
+          <input name="bot-field" />
+        </div>
         <div class="contact-form-field">
           <label for="fullName">Full Name</label>
-          <input id="fullName" type="text" placeholder="Full Name" required>
+          <input id="fullName" name="fullName" type="text" placeholder="Full Name" required>
         </div>
         <div class="contact-form-field">
           <label for="phoneNumber">Phone Number</label>
-          <input id="phoneNumber" type="tel" placeholder="Phone Number" required>
+          <input id="phoneNumber" name="phoneNumber" type="tel" placeholder="Phone Number" required>
         </div>
         <div class="contact-form-field">
           <label for="emailAddress">Email Address</label>
-          <input id="emailAddress" type="email" placeholder="Email Address">
+          <input id="emailAddress" name="emailAddress" type="email" placeholder="Email Address" required>
         </div>
         <div class="contact-form-field">
           <label for="vehicleDetails">Vehicle Make &amp; Model</label>
-          <input id="vehicleDetails" type="text" placeholder="Vehicle Make &amp; Model (e.g. Toyota Hilux 2018)" required>
+          <input id="vehicleDetails" name="vehicleDetails" type="text"
+            placeholder="Vehicle Make &amp; Model (e.g. Toyota Hilux 2018)" required>
         </div>
         <div class="contact-form-field">
           <label for="message">Message</label>
-          <textarea id="message" rows="5" placeholder="Tell us what's happening with your vehicle..." required></textarea>
+          <textarea id="message" name="message" rows="5"
+            placeholder="Tell us what's happening with your vehicle..." required></textarea>
         </div>
         <button type="submit" class="submit-btn">Send Message</button>
       </form>
