@@ -493,13 +493,13 @@ footer {
 .contact-info p {
     margin-bottom: 15px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     color: #555;
 }
 
 .contact-info p i {
-    margin-top: 2px;
+    margin-top: 4px;
 }
 
 .contact-info p a {
